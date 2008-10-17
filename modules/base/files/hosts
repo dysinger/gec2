@@ -19,8 +19,8 @@ parser = OptionParser.new do |p|
   }
   p.parse!(ARGV) rescue puts(p)
 end
-
 if options.key?(:access_key_id) and options.key?(:secret_access_key)
+  puts "127.0.0.1 localhost"
   EC2::Base.new(options).describe_instances.reservationSet.item.each do |r|
     r.instancesSet.item.each do |i|
       if i.instanceState.name =~ /running/
