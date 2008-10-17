@@ -165,5 +165,5 @@ use=web, web=http://169.254.169.254/2008-02-01/meta-data/public-ipv4
 protocol=dyndns2, \
 server=members.dyndns.org, \
 custom=yes, \
-<%= "#{name}\n#{add.kind_of?(Array) ? add.join("\n") : add}" %>
+<%= [name, add].flatten.join("\n") %>
 ### ^^^ ###
